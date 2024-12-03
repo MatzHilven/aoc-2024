@@ -27,7 +27,6 @@ extractNumbers str
   | otherwise = 
       (0, 0)
 
-
 solvePart1 :: InputType -> OutputType
 solvePart1 = foldr ((\(x,y) acc -> acc + (x*y)) . extractNumbers) 0
 
@@ -38,16 +37,11 @@ solvePart2 input = go input True 0
     go [] _ acc                          = acc
     go ("do()" : rest) _ acc             = go rest True acc
     go ("don't()" : rest) _ acc          = go rest False acc
-    
     go (m : xs) mulEnabled acc     
       | mulEnabled = 
           let (x, y) = extractNumbers m
           in go xs mulEnabled (acc + (x * y))
       | otherwise  = go xs mulEnabled acc
-
-    
-    
-
 
 type InputType = [String]
 type OutputType = Int
