@@ -2,9 +2,9 @@ module D2 where
 
 import Paths_aoc2024 (getDataFileName)
 
-day2 :: IO ()
-day2 = do
-    content <- getDataFileName "2.txt" >>= readFile
+day2 :: String -> IO ()
+day2 fileName = do
+    content <- getDataFileName fileName >>= readFile
     let parsedInput = parseInput content
     print parsedInput
     putStrLn "Part 1:"

@@ -8,8 +8,11 @@ import System.Environment (getArgs)
 main :: IO ()
 main = do
   args <- getArgs
+  print args
   case args of
-    "1" : _ -> day1
-    "2" : _ -> day2
-    "3" : _ -> day3
-    _ -> error "None or invalid day number provided."
+    [day, fileName] -> case day of
+      "1" -> day1 fileName
+      "2" -> day2 fileName
+      "3" -> day3 fileName
+      _   -> error "Invalid day number provided."
+    _ -> error "Usage: <program> <day> <fileName>"

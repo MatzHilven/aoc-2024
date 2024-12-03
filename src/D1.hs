@@ -3,9 +3,9 @@ module D1 where
 import Paths_aoc2024 (getDataFileName)
 import Data.List
 
-day1 :: IO ()
-day1 = do
-    content <- getDataFileName "1.txt" >>= readFile
+day1 :: String -> IO ()
+day1 fileName = do
+    content <- getDataFileName fileName >>= readFile
     let parsedInput = parseInput content
     putStrLn "Part 1:"
     print (solvePart1 parsedInput)

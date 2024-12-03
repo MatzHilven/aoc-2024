@@ -4,9 +4,9 @@ import Paths_aoc2024 (getDataFileName)
 import Text.Regex.TDFA
 import Data.List
 
-day3 :: IO ()
-day3 = do
-    content <- getDataFileName "3.txt" >>= readFile
+day3 :: String -> IO ()
+day3 fileName = do
+    content <- getDataFileName fileName >>= readFile
     let parsedInput = parseInput content
     print parsedInput
     putStrLn "Part 1:"
